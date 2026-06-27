@@ -23,6 +23,12 @@ export function PatientLookupStep() {
         name: patient.name ?? '',
         familyName: patient.family_name ?? '',
       });
+    } else {
+      setPatientInfo({
+        idNumber: patientInfo.idNumber,
+        name: '',
+        familyName: '',
+      });
     }
   };
 

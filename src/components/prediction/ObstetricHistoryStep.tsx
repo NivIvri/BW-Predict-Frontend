@@ -19,14 +19,14 @@ export function ObstetricHistoryStep() {
 
   // 📋 חלוקה סימטרית ל-4 עמודות מדויקות התואמות את שלב 1 במדויק
   const fields = [
-    { id: 'gravida', label: 'G (Gravida)', tooltip: 'Total number of pregnancies, including the current one' },
-    { id: 'para', label: 'P (Para)', tooltip: 'Number of deliveries after 20 weeks of gestation' },
-    { id: 'abortions', label: 'AB (Abortions)', tooltip: 'Number of pregnancy losses before 20 weeks' },
-    { id: 'cesareanSections', label: 'CS (Cesarean)', tooltip: 'Number of prior cesarean sections' },
-    { id: 'livingChildren', label: 'LC (Living Children)', tooltip: 'Number of currently living children' },
-    { id: 'eup', label: 'EUP (Ectopic)', tooltip: 'Number of prior ectopic pregnancies' },
-    { id: 'vbac', label: 'VBAC', tooltip: 'Number of successful vaginal births after a prior cesarean' },
-    { id: 'pastBirthsAverageWeight', label: 'Past Births Avg Weight', tooltip: 'The average weight of previous newborns. Automatically disabled if P = 0.', unit: 'g' },
+    { id: 'gravida',              label: 'G (Gravida)',          tooltip: 'Total number of pregnancies, including the current one',          min: 0, max: 20 },
+    { id: 'para',                 label: 'P (Para)',              tooltip: 'Number of deliveries after 20 weeks of gestation',                min: 0, max: 20 },
+    { id: 'abortions',            label: 'AB (Abortions)',        tooltip: 'Number of pregnancy losses before 20 weeks',                     min: 0, max: 20 },
+    { id: 'cesareanSections',     label: 'CS (Cesarean)',         tooltip: 'Number of prior cesarean sections',                              min: 0, max: 10 },
+    { id: 'livingChildren',       label: 'LC (Living Children)',  tooltip: 'Number of currently living children',                            min: 0, max: 20 },
+    { id: 'eup',                  label: 'EUP (Ectopic)',         tooltip: 'Number of prior ectopic pregnancies',                            min: 0, max: 10 },
+    { id: 'vbac',                 label: 'VBAC',                  tooltip: 'Number of successful vaginal births after a prior cesarean',     min: 0, max: 10 },
+    { id: 'pastBirthsAverageWeight', label: 'Past Births Avg Weight', tooltip: 'The average weight of previous newborns. Automatically disabled if P = 0.', unit: 'g', min: 500, max: 6000 },
   ];
 
   return (
@@ -76,7 +76,9 @@ export function ObstetricHistoryStep() {
                       id={field.id}
                       type="number"
                       placeholder={isBonusField ? (hasPastDeliveries ? 'e.g., 3400' : 'N/A') : '0'}
-                      disabled={isDisabled} 
+                      disabled={isDisabled}
+                      min={field.min}
+                      max={field.max}
                       value={(obstetricHistory as any)[field.id] ?? ''}
                       onChange={(e) => handleChange(field.id as keyof typeof obstetricHistory, e.target.value)}
                       className={`clinical-input text-center h-10 text-sm px-2 ${

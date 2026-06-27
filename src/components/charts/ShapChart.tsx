@@ -57,11 +57,11 @@ export function ShapChart({ factors }: ShapChartProps) {
       
       <div className="flex items-center justify-center gap-6 mt-4">
         <div className="flex items-center gap-2">
-          <div className="w-3 h-3 rounded bg-success/80" />
+          <div className="w-3 h-3 rounded" style={{ background: 'hsl(var(--chart-2))' }} />
           <span className="text-xs text-muted-foreground">Increases predicted weight (+)</span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="w-3 h-3 rounded bg-destructive/80" />
+          <div className="w-3 h-3 rounded" style={{ background: 'hsl(var(--destructive))' }} />
           <span className="text-xs text-muted-foreground">Decreases predicted weight (-)</span>
         </div>
       </div>

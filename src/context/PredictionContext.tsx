@@ -71,6 +71,8 @@ export function PredictionProvider({ children }: { children: ReactNode }) {
     setFoundPatient(patient);
     if (patient) {
       setMaternalInfo(prev => ({ ...prev, height: patient.height }));
+    } else {
+      setMaternalInfo(prev => ({ ...prev, height: '' }));
     }
     return patient;
   };

@@ -187,6 +187,8 @@ The model was trained on historical birth data to predict birth weight in grams.
 
 The 30 model features map directly to the form fields. Five fields also have a `_is_missing` flag so the model handles blank inputs gracefully without crashing.
 
+> For the full ML documentation — dataset, preprocessing, all models evaluated, hyperparameter tuning, feature importance, and final metrics — see [ML_MODEL.md](./ML_MODEL.md).
+
 ---
 
 ## How to Run Locally

@@ -3,7 +3,8 @@
 React + TypeScript frontend for the birth weight prediction clinical tool.  
 Doctors fill a 4-step form, the app calls the backend ML model, and displays the predicted birth weight with a SHAP explainability chart.
 
-> For a full deep-dive into how the project is built, see [PROJECT_OVERVIEW.md](./PROJECT_OVERVIEW.md).
+> For a full deep-dive into how the project is built, see [PROJECT_OVERVIEW.md](./PROJECT_OVERVIEW.md).  
+> For the ML model details (dataset, models evaluated, metrics, feature importance), see [ML_MODEL.md](./ML_MODEL.md).
 
 ---
 

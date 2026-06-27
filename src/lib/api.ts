@@ -68,6 +68,7 @@ function rowToPrediction(row: Record<string, unknown>): PredictionData {
       age: (row.age as number) ?? '',
       height: (patients?.height as number) ?? '',
       weightBeforePregnancy: (row.pre_pregnancy_weight as number) ?? '',
+      currentWeight: (row.current_weight as number) ?? '',
       bmi: (row.bmi as number) ?? '',
       gdm: (row.gdm as boolean) ?? false,
       dm: (row.dm as boolean) ?? false,
@@ -96,6 +97,7 @@ function rowToPrediction(row: Record<string, unknown>): PredictionData {
       efwUltrasound: (row.sonographic_weight_estimate as number) ?? '',
       clinicalEstimation: (row.clinical_weight_estimate as number) ?? '',
       induction: (row.induction as boolean) ?? false,
+      fetalSex: ((row.fetal_sex as number) ?? 0) as 0 | 1,
     },
     predictedWeight: predicted,
     confidenceRange: {

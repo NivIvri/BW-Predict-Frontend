@@ -17,6 +17,7 @@ export interface MaternalInfo {
   bmi: number | '';
   height: number | '';
   weightBeforePregnancy: number | '';
+  currentWeight: number | '';
   gdm: boolean;
   dm: boolean;
   smoking: boolean;
@@ -44,6 +45,7 @@ export interface FetalBiometry {
   efwUltrasound: number | '';
   clinicalEstimation: number | '';
   induction: boolean;
+  fetalSex: 0 | 1;
 }
 
 export interface PredictionData {
@@ -82,6 +84,7 @@ export const initialMaternalInfo: MaternalInfo = {
   bmi: '',
   height: '',
   weightBeforePregnancy: '',
+  currentWeight: '',
   gdm: false,
   dm: false,
   smoking: false,
@@ -109,6 +112,7 @@ export const initialFetalBiometry: FetalBiometry = {
   efwUltrasound: '',
   clinicalEstimation: '',
   induction: false,
+  fetalSex: 0,
 };
 
 export const initialPatientInfo: PatientInfo = {

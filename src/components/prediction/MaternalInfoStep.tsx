@@ -106,7 +106,24 @@ export function MaternalInfoStep() {
             />
           </div>
 
-          {/* 4. תיבת ה-BMI המחושב אוטומטית */}
+          {/* 4. משקל נוכחי */}
+          <div className="space-y-2">
+            <div className="flex items-center gap-1 min-h-[24px]">
+              <Label htmlFor="currentWeight" className="text-xs font-semibold text-foreground">Current Weight (kg)</Label>
+            </div>
+            <Input
+              id="currentWeight"
+              type="number"
+              placeholder="e.g., 75"
+              value={maternalInfo.currentWeight}
+              onChange={(e) => handleChange('currentWeight', e.target.value ? Number(e.target.value) : '')}
+              className="clinical-input text-center h-10 text-sm px-2"
+              min={35}
+              max={250}
+            />
+          </div>
+
+          {/* 5. תיבת ה-BMI המחושב אוטומטית */}
           <div className="space-y-2">
             <div className="flex items-center gap-1.5 min-h-[24px] text-muted-foreground">
               <Calculator className="w-3.5 h-3.5 flex-shrink-0" />

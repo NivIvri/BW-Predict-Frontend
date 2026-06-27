@@ -150,6 +150,22 @@ export function FetalBiometryStep() {
             </div>
 
             <div className="space-y-2">
+              <div className="flex items-center gap-1 min-h-[24px]">
+                <Label className="text-xs font-semibold text-foreground">Fetal Sex</Label>
+              </div>
+              <div className="flex items-center justify-between gap-2 p-2 rounded-lg border h-10 bg-muted/30">
+                <span className={`text-xs font-semibold transition-colors ${fetalBiometry.fetalSex === 0 ? 'text-primary' : 'text-muted-foreground'}`}>Female</span>
+                <Switch
+                  id="fetalSex"
+                  checked={fetalBiometry.fetalSex === 1}
+                  onCheckedChange={(checked) => handleChange('fetalSex', checked ? 1 : 0)}
+                />
+                <span className={`text-xs font-semibold transition-colors ${fetalBiometry.fetalSex === 1 ? 'text-primary' : 'text-muted-foreground'}`}>Male</span>
+              </div>
+            </div>
+
+            <div className="space-y-2">
+              <div className="flex items-center gap-1 min-h-[24px]" />
               <div className="flex items-center justify-between p-2 rounded-lg border h-10 bg-muted/30">
                 <Label htmlFor="induction" className="text-xs font-semibold text-foreground cursor-pointer">Induction of Labor</Label>
                 <Switch

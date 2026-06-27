@@ -61,6 +61,9 @@ export function PredictionForm() {
       if (!maternalInfo.weightBeforePregnancy || maternalInfo.weightBeforePregnancy < 35 || maternalInfo.weightBeforePregnancy > 200) {
         newErrors.push({ field: 'weightBeforePregnancy', message: 'Please enter pre-pregnancy weight (35–200 kg).' });
       }
+      if (!maternalInfo.currentWeight || maternalInfo.currentWeight < 35 || maternalInfo.currentWeight > 250) {
+        newErrors.push({ field: 'currentWeight', message: 'Please enter current weight (35–250 kg).' });
+      }
     }
 
     if (step === 3) {
@@ -75,18 +78,6 @@ export function PredictionForm() {
     if (step === 4) {
       if (!fetalBiometry.gestationalAge || fetalBiometry.gestationalAge < 20 || fetalBiometry.gestationalAge > 44) {
         newErrors.push({ field: 'gestationalAge', message: 'Please enter valid gestational age (20–44 weeks).' });
-      }
-      if (!fetalBiometry.hc || fetalBiometry.hc < 150 || fetalBiometry.hc > 400) {
-        newErrors.push({ field: 'hc', message: 'Please enter valid HC (150–400 mm).' });
-      }
-      if (!fetalBiometry.ac || fetalBiometry.ac < 100 || fetalBiometry.ac > 420) {
-        newErrors.push({ field: 'ac', message: 'Please enter valid AC (100–420 mm).' });
-      }
-      if (!fetalBiometry.fl || fetalBiometry.fl < 30 || fetalBiometry.fl > 90) {
-        newErrors.push({ field: 'fl', message: 'Please enter valid FL (30–90 mm).' });
-      }
-      if (fetalBiometry.afi === '' || fetalBiometry.afi < 0 || fetalBiometry.afi > 35) {
-        newErrors.push({ field: 'afi', message: 'Please enter a valid AFI fluid index (0–35 cm).' });
       }
       if (!fetalBiometry.efwUltrasound || fetalBiometry.efwUltrasound < 500 || fetalBiometry.efwUltrasound > 5500) {
         newErrors.push({ field: 'efwUltrasound', message: 'Please enter a valid Ultrasound EFW (500–5500 g).' });

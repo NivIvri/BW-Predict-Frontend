@@ -1,119 +1,63 @@
-# BirthWeight 
+# BW-Predict — Frontend
 
-BirthWeight is a clinical decision-support web application designed to predict fetal birth weight using machine learning and ultrasound biometry data.
+React + TypeScript frontend for the birth weight prediction clinical tool.  
+Doctors fill a 4-step form, the app calls the backend ML model, and displays the predicted birth weight with a SHAP explainability chart.
 
-The system assists medical staff in estimating fetal weight before delivery, improving clinical decision-making in maternity care.
-
----
-
-## Project Overview
-
-This project was developed in collaboration with Meir Medical Center and focuses on providing accurate, data-driven fetal weight predictions.
-
-The system integrates a web-based interface with a machine learning model trained on real clinical data, enabling fast and reliable predictions.
+> For a full deep-dive into how the project is built, see [PROJECT_OVERVIEW.md](./PROJECT_OVERVIEW.md).
 
 ---
 
-## System Architecture
+## Tech Stack
 
-The system follows a modern **MVC (Model-View-Controller)** architecture using a client-server approach :contentReference[oaicite:0]{index=0}.
-
-### Frontend (View)
-- Built with React
-- Provides a clean and responsive user interface
-- Allows input of maternal and fetal clinical data
-- Displays prediction results with confidence intervals
-
-### Backend (Controller)
-- Built with Node.js
-- Handles API requests and data validation
-- Communicates with the machine learning engine
-- Returns prediction results in JSON format
-
-### ML Engine (Model)
-- Built with Python (Scikit-learn, Pandas)
-- Uses a Random Forest algorithm
-- Trained on clinical data from Meir Medical Center
-- Generates accurate birth weight predictions based on:
-  - Gestational age
-  - Maternal characteristics
-  - Ultrasound measurements (HC, AC, FL)
+- React + TypeScript + Vite
+- shadcn/ui + Tailwind CSS
+- React Router
+- Recharts (SHAP bar chart)
+- Supabase (Auth + Database)
 
 ---
 
-## Features
-
-- AI-based fetal weight prediction
-- Multi-step clinical data input form
-- Confidence interval for predictions
-- Explainable AI using SHAP
-- Performance tracking (prediction vs actual outcome)
-- Clean and responsive UI
-
----
-
-## Machine Learning Approach
-
-### Model
-- Random Forest Regressor
-- Ensemble-based model for high accuracy and stability
-
-### Data Processing
-- Missing value imputation
-- One-hot encoding for categorical variables
-- Outlier filtering (physiological validation)
-- Feature scaling
-
-### Explainability
-- SHAP integration for feature contribution analysis
-- Provides transparency for clinical decision-making
-
-### Output
-- Predicted birth weight (grams)
-- Confidence interval
-- Future comparison with actual birth outcome
-
----
-
-## Database Design
-
-The system includes the following core entities :contentReference[oaicite:1]{index=1}:
-
-- **User** – medical staff using the system  
-- **Prediction** – stores prediction results and metadata  
-- **MaternalData** – clinical input variables  
-- **BirthOutcome** – actual birth weight for validation  
-
-### Relationships
-- One user can generate multiple predictions
-- Separation between input data and outcomes ensures clean analysis
-
----
-
-## Security
-
-- Role-based access control for medical staff
-- Secure communication via HTTPS (TLS)
-- Data minimization (no unnecessary identifiers)
-- Prediction logging for traceability
-
----
-
-## Technologies Used
-
-- React
-- TypeScript
-- Node.js
-- Python
-- Scikit-learn
-- Pandas
-- Tailwind CSS
-
----
-
-## Getting Started
-
-### Clone the repository
+## Setup
 
 ```bash
-git clone <YOUR_GIT_URL>
+npm install
+```
+
+Create a `.env` file:
+```
+VITE_API_URL=http://localhost:5000
+VITE_SUPABASE_URL=https://ijrkemmsdhzbzuudrwej.supabase.co
+VITE_SUPABASE_ANON_KEY=your_anon_key
+```
+
+```bash
+npm run dev
+# runs on http://localhost:8080
+```
+
+---
+
+## Pages
+
+| Route | Description |
+|---|---|
+| `/login` | Doctor login |
+| `/` | Dashboard |
+| `/predict` | New prediction (4-step form) |
+| `/results/:id` | Prediction result + SHAP chart |
+| `/history` | All past predictions |
+
+---
+
+## Form Steps
+
+1. **Patient Identification** — search by ID, auto-fill if existing patient
+2. **Maternal Info** — age, height, pre-pregnancy weight, current weight, BMI, medical history
+3. **Obstetric History** — G, P, AB, CS, LC, EUP, VBAC, avg past birth weight
+4. **Fetal Biometry** — gestational age, ultrasound EFW, clinical estimation, fetal sex
+
+---
+
+## Related
+
+- **Backend repo:** [BW-Predict-Backend](https://github.com/NivIvri/BW-Predict-Backend)

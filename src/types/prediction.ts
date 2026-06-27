@@ -38,13 +38,8 @@ export interface ObstetricHistory {
 
 export interface FetalBiometry {
   gestationalAge: number | '';
-  hc: number | '';
-  ac: number | '';
-  fl: number | '';
-  afi: number | '';
   efwUltrasound: number | '';
   clinicalEstimation: number | '';
-  induction: boolean;
   fetalSex: 0 | 1;
 }
 
@@ -105,13 +100,8 @@ export const initialObstetricHistory: ObstetricHistory = {
 
 export const initialFetalBiometry: FetalBiometry = {
   gestationalAge: '',
-  hc: '',
-  ac: '',
-  fl: '',
-  afi: '',
   efwUltrasound: '',
   clinicalEstimation: '',
-  induction: false,
   fetalSex: 0,
 };
 

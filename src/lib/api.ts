@@ -90,13 +90,8 @@ function rowToPrediction(row: Record<string, unknown>): PredictionData {
       gestationalAge: row.gestational_age_days
         ? Math.round(Number(row.gestational_age_days) / 7)
         : '',
-      hc: (row.hc as number) ?? '',
-      ac: (row.ac as number) ?? '',
-      fl: (row.fl as number) ?? '',
-      afi: (row.afi as number) ?? '',
       efwUltrasound: (row.sonographic_weight_estimate as number) ?? '',
       clinicalEstimation: (row.clinical_weight_estimate as number) ?? '',
-      induction: (row.induction as boolean) ?? false,
       fetalSex: ((row.fetal_sex as number) ?? 0) as 0 | 1,
     },
     predictedWeight: predicted,
